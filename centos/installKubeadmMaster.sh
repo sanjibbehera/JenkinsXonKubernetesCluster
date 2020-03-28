@@ -23,6 +23,5 @@ sudo sysctl --system
 sudo yum update -y
 sudo swapoff -a
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=`sudo cat /etc/hosts | head -n1 | cut -d " " -f1`
-sudo sleep 120
-sudo mkdir -p ~/.kube && sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config && sudo chown -R $(id -u):$(id -g) ~/.kube
+sudo sleep 120 && sudo mkdir -p ~/.kube && sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config && sudo chown -R $(id -u):$(id -g) ~/.kube
 sudo kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
